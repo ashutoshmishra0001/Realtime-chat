@@ -1,109 +1,139 @@
-/* General Page Style */
+/* Base styles */
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f2f2f2;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+/* Overlay Prompt */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.overlay-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.overlay-box input {
+  padding: 0.6rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.overlay-box button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* Chat Container */
 .chat-container {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-}
-
-/* Chat Message List */
-ul {
-  list-style: none;
-  padding: 0;
-  max-height: 250px;
-  overflow-y: auto;
-  margin-bottom: 10px;
-}
-
-/* Individual Message */
-li {
-  padding: 0.5rem;
-  background: #e9e9e9;
-  margin-bottom: 0.4rem;
-  border-radius: 6px;
-}
-
-/* Typing Indicator */
-.typing {
-  font-style: italic;
-  color: gray;
-  margin-bottom: 8px;
-}
-
-/* Message Input Form */
-form {
-  display: flex;
-  gap: 0.5rem;
-}
-
-input {
-  flex: 1;
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-/* Username Overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
-
-/* Inner box for username input */
-.overlay > div {
-  background: white;
-  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 90vh;
+}
+
+/* Chat Header */
+.chat-header {
+  background: #007bff;
+  color: white;
+  padding: 1rem;
   text-align: center;
 }
-/* Input field */
-#usernameInput {
-  padding: 0.6rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  width: 100%;
-  max-width: 300px;
+
+#typingIndicator {
+  font-size: 0.9rem;
+  color: #ffe;
+  margin-top: 0.4rem;
 }
 
-/* Join button */
-.overlay button {
-  padding: 0.5rem 1.2rem;
-  background-color: #007bff;
-  color: white;
+/* Messages List */
+.chat-messages {
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  margin: 0;
+}
+
+.chat-messages li {
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  background: #f1f1f1;
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+
+/* Chat Form */
+.chat-form {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-form input {
+  flex: 1;
+  padding: 1rem;
   border: none;
-  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.chat-form button {
+  padding: 1rem 1.5rem;
+  background: #007bff;
+  border: none;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+}
+
+/* System messages */
+.chat-messages li.system {
+  font-style: italic;
+  background: #e0e0e0;
+  color: #555;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .chat-container {
+    width: 95%;
+    height: 90vh;
+  }
+
+  .chat-form input {
+    font-size: 0.9rem;
+  }
+
+  .chat-form button {
+    font-size: 0.9rem;
+  }
 }
