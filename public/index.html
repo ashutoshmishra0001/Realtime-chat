@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Real-time Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Chat App Container -->
+  <div class="chat-container">
+    <h2>💬 Realtime Chat</h2>
+
+    <!-- Overlay for username input -->
+  <div id="usernamePrompt" class="overlay">
+  <div>
+    <input type="text" id="usernameInput" placeholder="Enter your name..." />
+    <br />
+    <button onclick="setUsername()">Join Chat</button>
+  </div>
+</div>
+
+    <!-- Chat messages list -->
+    <ul id="messages"></ul>
+
+    <!-- Typing indicator -->
+    <p id="typingIndicator" class="typing"></p>
+
+    <!-- Message input form -->
+    <form id="chatForm">
+      <input id="messageInput" autocomplete="off" placeholder="Type a message..." />
+      <button>Send</button>
+    </form>
+  </div>
+
+  <!-- Socket.IO and Client Logic -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+
+</body>
+</html>
